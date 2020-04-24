@@ -10,18 +10,20 @@ const ButtonEl = styled.button<ButtonElProps>`
   cursor: pointer;
   border: none;
   outline: none;
-  transition: 0.3s;
-  padding: 10px 20px;
+  transition: 0.6s;
+  padding: 10px 30px;
   min-width: 100px;
+  height: 50px;
   color: white;
   background-color: #2b71ff;
+  box-shadow: 0px 20px 75px 0px rgba(0, 0, 0, 0.2);
   opacity: ${({ $isDisabled }) => $isDisabled ? 0.5 : 1};
   border-radius: 30px;
-  font-size: 14px;
   pointer-events: ${({ $isDisabled }) => $isDisabled ? 'none' : 'auto'};
 
   &:hover {
-    background-color: #2055bf;
+    box-shadow: none;
+    transform: scale(0.95);
   }
 
   &:disabled {
@@ -30,15 +32,15 @@ const ButtonEl = styled.button<ButtonElProps>`
 `
 
 interface ButtonProps {
-  label: string
   isDisabled?: boolean
   onClick(): void
+  children: React.ReactNode;
 }
 
 export default function Button(props: ButtonProps) {
   return (
     <ButtonEl $isDisabled={props.isDisabled} onClick={props.onClick}>
-      {props.label}
+      {props.children}
     </ButtonEl>
   )
 }
