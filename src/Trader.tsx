@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import queryString from 'query-string';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as AirswapLogo } from './airswap-logo.svg';
 import { ReactComponent as ArrowRightIcon } from './arrow-right-icon.svg';
@@ -80,13 +81,14 @@ const InfoText = styled.p`
 `
 
 export default function TraderWidget() {
-  const { orderCID } = useParams()
+  const location = useLocation()
+  const query = queryString.parse(location.search, { arrayFormat: 'comma' });
 
   useEffect(() => {
-    if (orderCID) {
-      openTraderWidget(orderCID)
+    if (query.cid) {
+      openTraderWidget(`${query.cid}`)
     }
-  }, [orderCID])
+  }, [query.cid])
 
   return (
     <AppContainer>
@@ -95,7 +97,7 @@ export default function TraderWidget() {
       </LogoContainer>
       <Flex $height="100%" $justify="center">
         <ButtonContainer>
-          <Button onClick={() => openTraderWidget(orderCID)}>
+          <Button onClick={openTraderWidget}>
             <Flex $direction="row">
               <ButtonText>
                 Widget
