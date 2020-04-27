@@ -1,10 +1,11 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { SwapOrder, Signature } from './types';
 
 declare let window: any
 
-export default function openTraderWidget() {
+export default function openTraderWidget(orderCID?: string) {
   if (!window.AirSwapTrader) return
 
   // Widget Whitelabelling
@@ -66,6 +67,7 @@ export default function openTraderWidget() {
     widgetConfig,
     metadataConfig,
     orderGasLimit: 9000000,
+    cid: orderCID,
     // customTokenSections,
     customShareURL: 'https://trader.airswap.io',
     // defaultMakerToken: '0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48',
