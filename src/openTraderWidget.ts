@@ -9,25 +9,25 @@ export default function openTraderWidget() {
 
   // Widget Whitelabelling
   const widgetConfig = {
-    primaryColor: '#151212',
-    secondaryColor: '#2B71FF',
-    logoUrl: 'https://via.placeholder.com/300/09f/fff.png',
+    primaryColor: '#004A98',
+    secondaryColor: '#004A98',
+    logoUrl: 'https://www.vertalo.com/assets/images/vertalo-logo-white.svg',
   }
 
   const metadataConfig = {
-    faviconUrl: 'https://via.placeholder.com/300/09f/fff.png',
-    title: 'Test Title',
-    description: 'Test Description',
+    faviconUrl: 'https://www.vertalo.com/assets/images/vertalo-logo-white.svg',
+    title: 'Vertalo Demo',
+    description: 'Product Demo',
   }
 
   // Setting custom tokens in token selector
   const customTokenSections = [
     {
-      label: 'Securitize',
+      label: '',
       tokens: ['0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48']
     },
     {
-      label: 'Stablecoins',
+      label: '',
       tokens: ['0x0000000000000000000000000000000000000000']
     }
   ]
@@ -66,9 +66,9 @@ export default function openTraderWidget() {
     widgetConfig,
     metadataConfig,
     orderGasLimit: 9000000,
-    customTokenSections,
-    customShareURL: 'https://test.com',
-    defaultMakerToken: '0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48',
+    // customTokenSections,
+    customShareURL: 'https://demo.airswap.io',
+    // defaultMakerToken: '0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48',
     env: 'production',
     chainId: 4,
     onCreate,
