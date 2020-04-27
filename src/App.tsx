@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import './App.css'
 import { ReactComponent as AirswapLogo } from './airswap-logo.svg';
 import { ReactComponent as ArrowRightIcon } from './arrow-right-icon.svg';
+import { ReactComponent as InfoArrow } from './info-arrow.svg';
 
 import Button from './components/Button';
 import Flex from './components/Flex';
@@ -56,6 +57,28 @@ const ArrowRightIconContainer = styled(Flex)`
   }
 `
 
+const InfoArrowIconContainer = styled(Flex)`
+  margin-left: -25px;
+  margin-bottom: 5px;
+`
+
+const ButtonContainer = styled(Flex).attrs({ $justify: 'center' })`
+  position: relative;
+`
+
+const InfoArrowContainer = styled(Flex).attrs({ $align: 'flex-end', $direction: 'row' })`
+  position: absolute;
+  top: calc(100% + 10px);
+  left: calc(50%);
+`
+
+const InfoText = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  width: 85px;
+`
+
 export default function App() {
   return (
     <AppContainer>
@@ -63,16 +86,26 @@ export default function App() {
         <AirswapLogo />
       </LogoContainer>
       <Flex $height="100%" $justify="center">
-        <Button onClick={openTraderWidget}>
-          <Flex $direction="row">
-            <ButtonText>
-              Widget
-            </ButtonText>
-            <ArrowRightIconContainer>
-              <ArrowRightIcon />
-            </ArrowRightIconContainer>
-          </Flex>
-        </Button>
+        <ButtonContainer>
+          <Button onClick={openTraderWidget}>
+            <Flex $direction="row">
+              <ButtonText>
+                Widget
+              </ButtonText>
+              <ArrowRightIconContainer>
+                <ArrowRightIcon />
+              </ArrowRightIconContainer>
+            </Flex>
+          </Button>
+          <InfoArrowContainer>
+            <InfoArrowIconContainer>
+              <InfoArrow />
+            </InfoArrowIconContainer>
+            <InfoText>
+              Click here to launch the widget
+            </InfoText>
+          </InfoArrowContainer>
+        </ButtonContainer>
       </Flex>
       <Flex $shrink={0}>
         <DocsLink target="_blank" href="https://docs.fluidity.io/#/">Widget Documentation</DocsLink>

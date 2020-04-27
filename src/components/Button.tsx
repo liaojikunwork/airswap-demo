@@ -16,7 +16,7 @@ const ButtonEl = styled.button<ButtonElProps>`
   height: 50px;
   color: white;
   background-color: #2b71ff;
-  box-shadow: 0px 20px 75px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2);
   opacity: ${({ $isDisabled }) => $isDisabled ? 0.5 : 1};
   border-radius: 30px;
   pointer-events: ${({ $isDisabled }) => $isDisabled ? 'none' : 'auto'};
