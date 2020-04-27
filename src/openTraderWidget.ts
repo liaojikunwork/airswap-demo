@@ -9,17 +9,17 @@ export default function openTraderWidget(orderCID?: string) {
   if (!window.AirSwapTrader) return
 
   // Widget Whitelabelling
-  const widgetConfig = {
-    primaryColor: '#004A98',
-    secondaryColor: '#004A98',
-    logoUrl: 'https://www.vertalo.com/assets/images/vertalo-logo-white.svg',
-  }
+  // const widgetConfig = {
+  //   primaryColor: '#004A98',
+  //   secondaryColor: '#004A98',
+  //   logoUrl: 'https://www.vertalo.com/assets/images/vertalo-logo-white.svg',
+  // }
 
-  const metadataConfig = {
-    faviconUrl: 'https://www.vertalo.com/assets/images/vertalo-logo-white.svg',
-    title: 'Vertalo Demo',
-    description: 'Product Demo',
-  }
+  // const metadataConfig = {
+  //   faviconUrl: 'https://www.vertalo.com/assets/images/vertalo-logo-white.svg',
+  //   title: 'Vertalo Demo',
+  //   description: 'Product Demo',
+  // }
 
   // Setting custom tokens in token selector
   const customTokenSections = [
@@ -62,8 +62,8 @@ export default function openTraderWidget(orderCID?: string) {
   }
 
   const config: any = {
-    widgetConfig,
-    metadataConfig,
+    // widgetConfig,
+    // metadataConfig,
     orderGasLimit: 9000000,
     // customTokenSections,
     customShareURL: 'https://demo.airswap.io/',
@@ -79,7 +79,6 @@ export default function openTraderWidget(orderCID?: string) {
   }
   
   if (orderCID) {
-    console.log(orderCID)
     config.cid = orderCID
   }
 
