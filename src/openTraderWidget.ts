@@ -70,7 +70,7 @@ export default function openTraderWidget() {
     customShareURL: 'https://demo.airswap.io',
     // defaultMakerToken: '0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48',
     env: 'production',
-    chainId: 4,
+    chainId: 1,
     onCreate,
     onSubmit,
     onSwap,
