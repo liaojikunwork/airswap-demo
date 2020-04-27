@@ -97,7 +97,7 @@ export default function TraderWidget() {
       </LogoContainer>
       <Flex $height="100%" $justify="center">
         <ButtonContainer>
-          <Button onClick={openTraderWidget}>
+          <Button onClick={() => openTraderWidget()}>
             <Flex $direction="row">
               <ButtonText>
                 Widget

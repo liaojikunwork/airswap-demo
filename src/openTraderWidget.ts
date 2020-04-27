@@ -61,13 +61,10 @@ export default function openTraderWidget(orderCID?: string) {
     console.log('Widget Closed')
   }
 
-  // Render Widget
-  // Full configuration options can be found at https://docs.airswap.io/take-liquidity/embed-airswap#embed-airswap-otc
-  window.AirSwapTrader.render({
+  const config: any = {
     widgetConfig,
     metadataConfig,
     orderGasLimit: 9000000,
-    cid: orderCID,
     // customTokenSections,
     customShareURL: 'https://demo.airswap.io/',
     // defaultMakerToken: '0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48',
@@ -79,7 +76,14 @@ export default function openTraderWidget(orderCID?: string) {
     onError,
     onCancel,
     onClose,
-  },
-  'body',
-  )
+  }
+  
+  if (orderCID) {
+    console.log(orderCID)
+    config.cid = orderCID
+  }
+
+  // Render Widget
+  // Full configuration options can be found at https://docs.airswap.io/take-liquidity/embed-airswap#embed-airswap-otc
+  window.AirSwapTrader.render(config, 'body')
 }
