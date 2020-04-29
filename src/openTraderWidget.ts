@@ -10,13 +10,13 @@ export default function openTraderWidget(orderCID?: string) {
 
   // Widget Whitelabelling
   const widgetConfig = {
-    primaryColor: '#002D80',
-    secondaryColor: '#002D80',
-    logoUrl: 'https://www.realblocks.com/hs-fs/hubfs/RealBlocks%20-%20black%20logo.png?width=72&name=RealBlocks%20-%20black%20logo.png',
+    primaryColor: '#0A1634',
+    secondaryColor: '#0A1634',
+    // logoUrl: 'https://docs.fluidity.io/assets/logo/Fluidity-Logo.png',
   }
 
   const metadataConfig = {
-    faviconUrl: 'https://www.realblocks.com/hs-fs/hubfs/RealBlocks%20-%20black%20logo.png?width=72&name=RealBlocks%20-%20black%20logo.png',
+    faviconUrl: 'https://i.imgur.com/K3xpY15.png',
     title: 'RealBlocks Demo',
     description: 'Product Demo',
   }
