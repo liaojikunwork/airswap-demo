@@ -10,14 +10,14 @@ export default function openTraderWidget(orderCID?: string) {
 
   // Widget Whitelabelling
   const widgetConfig = {
-    primaryColor: '#002730',
-    secondaryColor: '#002730',
-    logoUrl: 'https://securrency.com/wp-content/uploads/2019/07/logo-white.png',
+    primaryColor: '#002D80',
+    secondaryColor: '#002D80',
+    logoUrl: 'https://www.realblocks.com/hs-fs/hubfs/RealBlocks%20-%20black%20logo.png?width=72&name=RealBlocks%20-%20black%20logo.png',
   }
 
   const metadataConfig = {
-    faviconUrl: 'https://securrency.com/wp-content/uploads/2019/07/logo-white.png',
-    title: 'Securrency Demo',
+    faviconUrl: 'https://www.realblocks.com/hs-fs/hubfs/RealBlocks%20-%20black%20logo.png?width=72&name=RealBlocks%20-%20black%20logo.png',
+    title: 'RealBlocks Demo',
     description: 'Product Demo',
   }
 
