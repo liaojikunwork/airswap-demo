@@ -64,7 +64,7 @@ export default function openTraderWidget(orderCID?: string) {
   const config: any = {
     // widgetConfig,
     // metadataConfig,
-    orderGasLimit: 9000000,
+    // orderGasLimit: 9000000,
     // customTokenSections,
     customShareURL: 'https://demo.airswap.io/',
     // defaultMakerToken: '0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48',
