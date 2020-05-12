@@ -10,14 +10,14 @@ export default function openTraderWidget(orderCID?: string) {
 
   // Widget Whitelabelling
   const widgetConfig = {
-    primaryColor: '#0A1634',
-    secondaryColor: '#0A1634',
-    // logoUrl: 'https://docs.fluidity.io/assets/logo/Fluidity-Logo.png',
+    primaryColor: '#1C1C1C',
+    secondaryColor: '#1C1C1C',
+    logoUrl: 'https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_300,w_300,f_auto,q_auto/1196617/Swarm_CI_04_-_wo_-_sm_wgot2h.png',
   }
 
   const metadataConfig = {
-    faviconUrl: 'https://i.imgur.com/K3xpY15.png',
-    title: 'RealBlocks Demo',
+    faviconUrl: 'https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_300,w_300,f_auto,q_auto/1196617/Swarm_CI_04_-_wo_-_sm_wgot2h.png',
+    title: 'Swarm Demo',
     description: 'Product Demo',
   }
 
