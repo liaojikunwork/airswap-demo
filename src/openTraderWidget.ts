@@ -10,14 +10,14 @@ export default function openTraderWidget(orderCID?: string) {
 
   // Widget Whitelabelling
   const widgetConfig = {
-    primaryColor: '#1C1C1C',
-    secondaryColor: '#1C1C1C',
-    logoUrl: 'https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_300,w_300,f_auto,q_auto/1196617/Swarm_CI_04_-_wo_-_sm_wgot2h.png',
+    primaryColor: '#203568',
+    secondaryColor: '#203568',
+    logoUrl: 'https://icofunding.com/wp-content/uploads/2019/11/logo-icofunding.png',
   }
 
   const metadataConfig = {
-    faviconUrl: 'https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_300,w_300,f_auto,q_auto/1196617/Swarm_CI_04_-_wo_-_sm_wgot2h.png',
-    title: 'Swarm Demo',
+    faviconUrl: 'https://icofunding.com/wp-content/uploads/2019/11/logo-icofunding.png',
+    title: 'Demo',
     description: 'Product Demo',
   }
 
