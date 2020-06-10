@@ -10,15 +10,15 @@ export default function openTraderWidget(orderCID?: string) {
 
   // Widget Whitelabelling
   const widgetConfig = {
-    primaryColor: '#203568',
-    secondaryColor: '#203568',
-    logoUrl: 'https://icofunding.com/wp-content/uploads/2019/11/logo-icofunding.png',
+    primaryColor: '#222323',
+    secondaryColor: '#222323',
+    logoUrl: 'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
   }
 
   const metadataConfig = {
-    faviconUrl: 'https://icofunding.com/wp-content/uploads/2019/11/logo-icofunding.png',
-    title: 'Demo',
-    description: 'Product Demo',
+    faviconUrl: 'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
+    title: 'Codefi',
+    description: 'Codefi Demo',
   }
 
   // Setting custom tokens in token selector
