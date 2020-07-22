@@ -26,6 +26,30 @@ references:
         - *npm_cache_key
         - *npm_backup_cache_key
 
+  invalidate_cloudfront: &invalidate_cloudfront
+    run:
+      name: create invalidations for cloudfront
+      command: |
+        case $ENV in
+          "production")
+            aws cloudfront create-invalidation --distribution-id E3CHCUGQINR2QU --paths "/*"
+            ;;
+          "development")
+            aws cloudfront create-invalidation --distribution-id E2V3FLCAMEC5ZI --paths "/*"
+            ;;
+        esac
+
+  setup_bucket: &setup_bucket
+    run:
+      name: set up bucket name
+      command: |
+        case $BRANCHES in
+          "true")
+            echo "export S3_BUCKET=$CIRCLE_BRANCH.demo.airswap" >> $BASH_ENV;;
+          *)
+            echo "export S3_BUCKET=demo.$DOMAIN" >> $BASH_ENV;;
+        esac
+
   install_missing_packages: &install_missing_packages
     run:
       command: |
@@ -62,6 +86,21 @@ references:
       - aws-cli/install
       - airswap/assume-role:
           role-name: StaticSiteDeployer
+      - *setup_bucket
+      - run:
+          name: deploy to s3 bucket
+          command: |
+            if [[ "$(aws s3 ls s3://$S3_BUCKET 2>&1 >/dev/null | grep "error" | wc -l)" -ne 0 ]]; then
+              aws s3api create-bucket --bucket "$S3_BUCKET" || :
+              aws s3api put-bucket-versioning --bucket "$S3_BUCKET" --versioning-configuration Status=Enabled
+              aws s3api put-bucket-encryption --bucket "$S3_BUCKET" --server-side-encryption-configuration '{ "Rules": [ { "ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
+              aws s3api put-bucket-acl --bucket "$S3_BUCKET" --grant-write URI=http://acs.amazonaws.com/groups/s3/LogDelivery --grant-read-acp URI=http://acs.amazonaws.com/groups/s3/LogDelivery
+              # aws s3api put-bucket-logging --bucket-logging-status '{"LoggingEnabled": {"TargetBucket": "airswap-$ACCOUNT_ID-$ENV","TargetPrefix": "s3/log-$S3_BUCKET/","TargetGrants": [{"Grantee": {"Type": "Group","URI": "http://acs.amazonaws.com/groups/s3/LogDelivery"},"Permission": "WRITE"},{"Grantee": {"Type": "Group","URI": "http://acs.amazonaws.com/groups/s3/LogDelivery"},"Permission": "READ_ACP"}]}}' --bucket "$S3_BUCKET"
+              aws s3 website "s3://$S3_BUCKET" --index-document index.html
+            fi
+            aws s3 rm s3://$S3_BUCKET --recursive
+            aws s3 sync ./build s3://$S3_BUCKET --delete --acl public-read
+      - *invalidate_cloudfront
       - persist_to_workspace:
           root: ~/repo
           paths: .
