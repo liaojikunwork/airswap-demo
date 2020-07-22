@@ -1,7 +1,4 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-
-import { SwapOrder, Signature } from './types';
+import { SwapOrder, Signature } from './types'
 
 declare let window: any
 
@@ -12,26 +9,16 @@ export default function openTraderWidget(orderCID?: string) {
   const widgetConfig = {
     primaryColor: '#222323',
     secondaryColor: '#222323',
-    logoUrl: 'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
+    logoUrl:
+      'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
   }
 
   const metadataConfig = {
-    faviconUrl: 'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
+    faviconUrl:
+      'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
     title: 'Codefi',
     description: 'Codefi Demo',
   }
-
-  // Setting custom tokens in token selector
-  const customTokenSections = [
-    {
-      label: '',
-      tokens: ['0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48']
-    },
-    {
-      label: '',
-      tokens: ['0x0000000000000000000000000000000000000000']
-    }
-  ]
 
   // Callback functions
   const onCreate = (order: SwapOrder, signature: Signature, cid: string) => {
@@ -49,8 +36,8 @@ export default function openTraderWidget(orderCID?: string) {
   }
 
   const onError = (error: string) => {
-    console.log('There was an issue with the transaction');
-    console.log(error);
+    console.log('There was an issue with the transaction')
+    console.log(error)
   }
 
   const onCancel = (txId: string) => {
@@ -83,5 +70,5 @@ export default function openTraderWidget(orderCID?: string) {
 
   // Render Widget
   // Full configuration options can be found at https://docs.airswap.io/take-liquidity/embed-airswap#embed-airswap-otc
-  window.AirSwapTrader.render(config, 'body')
+  window.AirSwapTrader(config).render('body')
 }
