@@ -1,8 +1,4 @@
 ###
-# Fluidity IPFS Static Website CircleCI script
-#
-# Copy and paste me into a repo to enable static IPFS website build and deploys.
-# Please update the version number when making changes.
 #
 # @author Fluidity Ops
 # @version 1.0.0
@@ -14,21 +10,15 @@ version: 2.1
 orbs:
   airswap: airswap/assume-role@volatile
   aws-cli: airswap/aws-cli@volatile
-  slack: circleci/slack@0.1.1
-  datadog: airswap/datadog@volatile
-  ipfs: airswap/ipfs@volatile
 
 references:
-
   container_config: &container_config
     docker:
       - image: circleci/node:12
     working_directory: ~/repo
 
-  npm_cache_key: &npm_cache_key
-    v4-dependencies-{{ checksum "package.json" }}
-  npm_backup_cache_key: &npm_backup_cache_key
-    v4-dependencies-
+  npm_cache_key: &npm_cache_key v4-dependencies-{{ checksum "package.json" }}
+  npm_backup_cache_key: &npm_backup_cache_key v4-dependencies-
 
   restore_node_modules: &restore_node_modules
     restore_cache:
@@ -72,21 +62,15 @@ references:
       - aws-cli/install
       - airswap/assume-role:
           role-name: StaticSiteDeployer
-      - ipfs/deploy_and_update_dns:
-          directory: "./build"
-          dns-record: "demo.$ENV.airswap.io"
-          zone-id: $ZONE_ID
-      - slack/status
-      - datadog/deploy
       - persist_to_workspace:
-            root: ~/repo
-            paths: .
+          root: ~/repo
+          paths: .
 
 jobs:
   development:
     <<: *build_and_deploy
   production:
-    <<: *build_and_deploy      
+    <<: *build_and_deploy
 
 workflows:
   build_test_deploy:
