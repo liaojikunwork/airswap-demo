@@ -32,6 +32,7 @@ references:
       command: |
         case $ENV in
           "production")
+            aws cloudfront create-invalidation --distribution-id E1XQ1164DRXU9Y --paths "/*"
             aws cloudfront create-invalidation --distribution-id E3CHCUGQINR2QU --paths "/*"
             ;;
           "development")
