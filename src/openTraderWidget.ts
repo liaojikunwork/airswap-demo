@@ -7,17 +7,17 @@ export default function openTraderWidget(orderCID?: string) {
 
   // Widget Whitelabelling
   const widgetConfig = {
-    primaryColor: '#222323',
-    secondaryColor: '#222323',
+    primaryColor: '#383F43',
+    secondaryColor: '#AB7E4E',
     logoUrl:
-      'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
+      'https://www.wiv.io/wp-content/uploads/2019/04/Logo-WiV-main-hd2.png',
   }
 
   const metadataConfig = {
     faviconUrl:
-      'https://static1.squarespace.com/static/5d56ea2f13bf100001583119/t/5d66f25996fe220001eed666/1591726775858/?format=1500w',
-    title: 'Codefi',
-    description: 'Codefi Demo',
+      'https://www.wiv.io/wp-content/uploads/2019/04/Logo-WiV-main-hd2.png',
+    title: 'wiv demo',
+    description: 'wiv demo',
   }
 
   // Callback functions
@@ -53,7 +53,7 @@ export default function openTraderWidget(orderCID?: string) {
     metadataConfig,
     // customTokenSections,
     customShareURL: 'https://demo.airswap.io/',
-    // defaultMakerToken: '0xf74387c4c4ea6351036f8dc3d0fe14542f20fe48',
+    defaultTakerToken: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     env: 'production',
     chainId: 1,
     onCreate,

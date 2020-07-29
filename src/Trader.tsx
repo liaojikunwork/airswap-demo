@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as AirswapLogo } from './airswap-logo.svg';
+import { ReactComponent as CodefiLogo } from './Codefi.svg';
 import { ReactComponent as ArrowRightIcon } from './arrow-right-icon.svg';
 import { ReactComponent as InfoArrow } from './info-arrow.svg';
 
@@ -93,7 +93,7 @@ export default function TraderWidget() {
   return (
     <AppContainer>
       <LogoContainer>
-        <AirswapLogo />
+        <CodefiLogo />
       </LogoContainer>
       <Flex $height="100%" $justify="center">
         <ButtonContainer>
@@ -118,7 +118,7 @@ export default function TraderWidget() {
         </ButtonContainer>
       </Flex>
       <Flex $shrink={0}>
-        <DocsLink target="_blank" href="https://docs.fluidity.io/#/">Widget Documentation</DocsLink>
+        <DocsLink target="_blank" href="https://docs.fluidity.io/#/README">Widget Documentation</DocsLink>
       </Flex>
     </AppContainer>
   );
